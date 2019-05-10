@@ -1,0 +1,47 @@
+html,
+body {
+  height: 50%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+textarea {
+  height: 15px;
+  overflow: auto;
+  resize: none;
+}
+
+.todo-app {
+  background-color: #efefef;
+  border: 1px solid;
+  overflow: hidden;
+}
+
+.input {
+  padding: 16px;
+  text-align: center;
+  background: white;
+}
+
+.todo {
+  border-top: 1px solid #efefef;
+  padding: 16px;
+  background: white;
+}
+
+.delete {
+  float: right;
+}

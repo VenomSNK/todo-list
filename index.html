@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Lista Zadań</title>
+	<link rel="stylesheet" type="text/css" href="src/styles.css"/>
+</head>
+
+<body>
+	<div class="todo-app">
+	    <h1>Lista zadań</h1>
+		<form class="todo-form" id="todoForm">
+			<div class="input">
+				<label for="new-task">Podaj treść zadania</label>
+				<textarea id="new-task"></textarea>
+				<button type="submit">Dodaj</button>
+			</div>
+		</form>
+
+		<h2>Do zrobienia</h2>
+			<div id="todoList">
+			</div>
+	</div>
+
+	<script>
+			let todoList = null;
+            let todoForm = null;
+
+            function addTask(text) {
+                const todo = document.createElement('DIV');
+                todo.classList.add('todo');
+
+                const todoDelete = document.createElement('BUTTON');
+                todoDelete.classList.add('delete');
+                todoDelete.innerHTML = 'Usuń';
+
+                const todoText = document.createElement('DIV');
+				todoText.innerText = text;
+								
+                todoText.appendChild(todoDelete);
+                todo.appendChild(todoText);
+                todoList.append(todo);
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                todoList = document.querySelector('#todoList');
+                todoForm = document.querySelector('#todoForm');
+
+                todoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const textarea = this.querySelector('textarea');
+                    if (textarea.value !== '') {
+                        addTask(textarea.value);
+                        textarea.value = '';
+                    }
+                });
+
+                todoList.addEventListener('click', function(e) {
+                    if (e.target.closest('.delete') !== null) {
+                        e.target.closest('.todo').remove();
+                    }
+                });
+            });
+	</script>
+</body>
+
+</html>
